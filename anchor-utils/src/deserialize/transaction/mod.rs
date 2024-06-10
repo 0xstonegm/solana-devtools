@@ -45,4 +45,4 @@ impl AnchorDeserializer {
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-pub struct DeserializedTransaction(Vec<DeserializedInstruction>);
+pub struct DeserializedTransaction(pub Vec<DeserializedInstruction>);

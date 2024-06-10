@@ -51,9 +51,10 @@ impl AnchorDeserializer {
         &mut self,
         program_id: Pubkey,
         path: impl AsRef<Path>,
-    ) -> anyhow::Result<()> {
+    ) -> anyhow::Result<IdlWithDiscriminators> {
         let idl = IdlWithDiscriminators::from_file(path)?;
-        self.cache_idl(program_id, idl);
-        Ok(())
+        self.cache_idl(program_id, idl.clone());
+
+        Ok(idl)
     }
 }
